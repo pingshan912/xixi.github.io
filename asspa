@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>星辰激励站 · 赵宇霞</title>
+    <link href=re.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #2E86AB;
+            --second-color: #F6F5AE;
+            --third-color: #F24236;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft Yahei', sans-serif;
+            background: linear-gradient(135deg, #2E86AB 0%, #F6F5AE 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--second-color);
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .inspiration-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .inspire-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            aspect-ratio: 1;
+        }
+
+        .inspire-card:hover {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .inspire-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.3s;
+        }
+
+        .inspire-card:hover img {
+            filter: grayscale(0);
+        }
+
+        .quote {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .motivational-text {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .motivational-text h2 {
+            color: var(--second-color);
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+            font-size: 3rem;
+            margin: 1rem;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .inspiration-wall {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <i class="fas fa-star floating-icon" style="color: var(--second-color)"></i>
+                星辰激励站
+                <i class="fas fa-rocket floating-icon" style="color: var(--third-color)"></i>
+            </h1>
+            <div class="motivational-text">
+                <h2>今日能量补给站 ⚡</h2>
+                <p>「你比想象的更强大，比看上去的更勇敢，比认定的更优秀！」✨</p>
+            </div>
+        </header>
+
+        <div class="inspiration-wall">
+            <!-- 图片1 -->
+            <div class="inspire-card">
+                <img src="2e5665bd626c42a8313a6c44800c31b6.jpg" alt="山峰">
+                <div class="quote">"攀登者眼中没有顶峰，只有新的起点"</div>
+            </div>
+            
+            <!-- 图片2 -->
+            <div class="inspire-card">
+                <img src="https://source.unsplash.com/random/800x800?ocean" alt="海洋">
+                <div class="quote">"生命如潮汐，退去是为了更好的归来"</div>
+            </div>
+
+            <!-- 图片3 -->
+            <div class="inspire-card">
+                <img src="https://source.unsplash.com/random/800x800?forest" alt="森林">
+                <div class="quote">"每棵参天大树都始于一颗勇敢的种子"</div>
+            </div>
+
+            <!-- 图片4 -->
+            <div class="inspire-card">
+                <img src="https://source.unsplash.com/random/800x800?desert" alt="沙漠">
+                <div class="quote">"最荒凉的沙漠也能开出希望之花"</div>
+            </div>
+
+            <!-- 图片5 -->
+            <div class="inspire-card">
+                <img src="https://source.unsplash.com/random/800x800?night-sky" alt="星空">
+                <div class="quote">"黑暗中的星光，是你内心的光芒"</div>
+            </div>
+
+            <!-- 图片6 -->
+            <div class="inspire-card">
+                <img src="https://source.unsplash.com/random/800x800?bridge" alt="桥梁">
+                <div class="quote">"每个终点都是新的起点"</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 图片悬停互动
+        document.querySelectorAll('.inspire-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width * 100;
+                const y = (e.clientY - rect.top) / rect.height * 100;
+                
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${(y - 50) / 3}deg)
+                    rotateY(${-(x - 50) / 3}deg)
+                    translateY(-10px)
+                    scale(1.03)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
